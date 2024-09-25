@@ -11,60 +11,65 @@
 <body>
     <main>
         <aside>
-            <h3>Dibujar</h3>
-            <section class="tools-list">
-                <button class="tool active" id="pen-btn">
-                    <tool-tip>
-                        Lapiz
+            <section class="tools-section">
+                <div>
+                    <input type="range" name="stroke-size" id="stroke-size" value="5" min="1" max="50">
+                    <tool-tip id="stroke-tooltip">
+                        Trazo: 5
                     </tool-tip>
-                    <img src="./icons/pen.png" alt="dibujar">
-                </button>
-                <button class="tool" id="eraser-btn">
-                    <tool-tip>
-                        Goma
-                    </tool-tip>
-                    <img src="./icons/eraser.png" alt="borrar">
-                </button>
-                <button class="tool" id="btn-color">
-                    <tool-tip>
-                        Elegir color
-                    </tool-tip>
-                    <input class="tool" type="color" id="color-picker" value="#000000">
-                </button>
-                <button class="tool" id="clear-btn">
-                    <tool-tip>
-                        Vaciar
-                    </tool-tip>
-                    <img src="./icons/trash.png" alt="vaciar">
-                </button>
-            </section>
+                </div>
 
-            <h3>Imagenes</h3>
-            <section class="tools-list">
-                <button class="tool">
-                    <label class="tool" for="upload-img" id="label-upload">
+                <section class="tools-list">
+                    <button class="tool active" id="pencil-btn">
                         <tool-tip>
-                            Cargar imagen
+                            Lapiz
                         </tool-tip>
-                        <img src="./icons/upload.png" alt="cargar imagen">
-                    </label>
-                    <input type="file" accept="image/*" id="upload-img">
-                </button>
-                
-                <button class="tool" id="download-button">
-                    <tool-tip>
-                        Descargar imagen
-                    </tool-tip>
-                    <img src="./icons/download.png" alt="descargar">
-                    <a href="" id="download-link" download="img.png"></a>
-                </button>
+                        <img src="./icons/pencil.png" alt="dibujar">
+                    </button>
+                    <button class="tool" id="eraser-btn">
+                        <tool-tip>
+                            Borrador
+                        </tool-tip>
+                        <img src="./icons/eraser.png" alt="borrar">
+                    </button>
+                    <button class="tool" id="btn-color">
+                        <tool-tip>
+                            Elegir color
+                        </tool-tip>
+                        <input class="tool" type="color" id="color-picker" value="#000000">
+                    </button>
+                    <button class="tool" id="clear-btn">
+                        <tool-tip>
+                            Vaciar
+                        </tool-tip>
+                        <img src="./icons/trash.png" alt="vaciar">
+                    </button>
 
-                <button class="tool" id="reload-image">
-                    <tool-tip>
-                        Resetear imagen
-                    </tool-tip>
-                    <img src="./icons/reload.png" alt="reiniciar imagen">
-                </button>
+                    <button class="tool">
+                        <label class="tool" for="upload-img" id="label-upload">
+                            <tool-tip>
+                                Cargar imagen
+                            </tool-tip>
+                            <img src="./icons/upload.png" alt="cargar imagen">
+                        </label>
+                        <input type="file" accept="image/*" id="upload-img">
+                    </button>
+                    
+                    <button class="tool" id="download-button">
+                        <tool-tip>
+                            Descargar imagen
+                        </tool-tip>
+                        <img src="./icons/download.png" alt="descargar">
+                        <a href="" id="download-link" download="img.png"></a>
+                    </button>
+
+                    <button class="tool" id="reload-image">
+                        <tool-tip>
+                            Resetear imagen
+                        </tool-tip>
+                        <img src="./icons/reload.png" alt="reiniciar imagen">
+                    </button>
+                </section>
             </section>
 
             <h3>Filtros</h3>

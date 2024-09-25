@@ -11,20 +11,22 @@ let canvasHeight = canvas.height
 let mouseDown = false
 let mousePos = 0
 
-let lapiz = new Lapiz(ctx, 0, 0, 'black', 5)
 let lapizSelected = true
 let gomaSelected = false
 
 let filtro = new Filter(ctx)
 
-let penBtn = document.getElementById('pen-btn')
+let pencilBtn = document.getElementById('pencil-btn')
 let eraserBtn = document.getElementById('eraser-btn')
 let colorPicker = document.getElementById('color-picker')
+let strokeSize = document.getElementById('stroke-size')
 
 let img = new Image()
 let uploadImg = document.getElementById('upload-img')
 let downloadButton = document.getElementById('download-button')
 let downlink = document.getElementById('download-link')
+
+let lapiz = new Lapiz(ctx, 0, 0, 'black', strokeSize.value)
 
 /**obtener posision de mouse para dibujar */
 function getMousePos(e) {
@@ -46,25 +48,32 @@ function setTool(isLapiz, isGoma) {
     gomaSelected = isGoma
 
     if (lapizSelected) {   
-        penBtn.classList.add('active')
+        pencilBtn.classList.add('active')
         eraserBtn.classList.remove('active')
         lapiz.setColor(colorPicker.value)
-        lapiz.setWidth(5)
+        lapiz.setWidth(strokeSize.value)
     }
     if (gomaSelected) {
-        penBtn.classList.remove('active')
+        pencilBtn.classList.remove('active')
         eraserBtn.classList.add('active')
         lapiz.setColor(getCanvasBackground())
-        lapiz.setWidth(10)
+        lapiz.setWidth(strokeSize.value)
     }
 }
-penBtn.addEventListener('click', ()=> setTool(true, false))
+pencilBtn.addEventListener('click', ()=> setTool(true, false))
 eraserBtn.addEventListener('click', ()=> setTool(false, true))
 
 /**seleccionar color del lapiz */
 document.getElementById('btn-color').addEventListener('input',()=>
     lapizSelected && lapiz.setColor(colorPicker.value)
 )
+
+/**seleccionar el tamaño del trazo */
+strokeSize.addEventListener('input', ()=> {
+    lapiz.setWidth(strokeSize.value)
+
+    document.getElementById('stroke-tooltip').innerText = `Trazo: ${strokeSize.value}`
+})
 
 /**eventos para dibujar */
 canvas.addEventListener('mousedown', (e) => {

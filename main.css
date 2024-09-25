@@ -42,6 +42,10 @@ body{
     display: none;
 }
 
+#stroke-size{
+    width: 70px;
+}
+
 .tool{
     display: flex;
     justify-content: center;
@@ -75,15 +79,22 @@ body{
     background-color: #4f86a8;
 }
 
-.tools-list{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
+.tools-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-right: 1px solid;
     border-bottom: 1px solid;
     padding: 4px;
     border-radius: 4px;
     background-color: var(--elem-background);
+    margin-bottom: 5px;
+}
+
+.tools-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
 }
 
 .tool img {
