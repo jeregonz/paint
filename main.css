@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+:root{
+    --tool-size: 30px;
+    --border-text-color: #293f51;
+    --elem-background: #f4f8fb;
+    --icons-size: 24px;
+}
+
+body{
+    color: var(--border-text-color);
+    background-color: #e9eff5;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+#color-picker {
+	border: 0;
+    padding: 5px;
+}
+
+#color-picker::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+#color-picker::-webkit-color-swatch {
+	border: none;
+    border-radius: 4px;
+}
+
+#upload-img, #download-link{
+    display: none;
+}
+
+.tool{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--tool-size);
+    width: var(--tool-size);
+    background-color: inherit;
+    box-shadow: 1px 1px 1px 1px var(--border-text-color);
+    padding: 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 0;
+}
+
+.tool.active{
+    background-color: #a3c2d6;
+}
+.tool.active:hover{
+    background-color: #a3c2d6;
+}
+.tool.active:active{
+    background-color: #4f86a8;
+}
+
+.tool:hover{
+    background-color: #cedee9;
+}
+
+.tool:active {
+    background-color: #4f86a8;
+}
+
+.tools-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: var(--elem-background);
+}
+
+.tool img {
+    width: var(--icons-size);
+    height: var(--icons-size);
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: 10px;
+}
+
+h3{
+    margin: 1px;
+}
+
+canvas{
+    border: 1px solid rgb(187, 186, 186);
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px var(--border-text-color);
+}
+
+main{
+    display: flex;
+    gap: 5px;
+}
+
+.filters{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.filter-button{
+    display: block;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 1.5s ease;
+    border: 0;
+    box-shadow: 1px 1px 1px 1px var(--border-text-color);
+    color: var(--border-text-color);
+    background-color: var(--elem-background);
+    font-weight: bold;
+}
+
+.filter-button:hover{
+    background: url(./img/original.png) no-repeat center;
+    color: #00000000;
+}
+
+#grey-scale-filter:hover{
+    filter: grayscale(1);
+}
+#blur-filter:hover{
+    filter: blur(2px);
+}
+#negative-filter:hover{
+    filter: invert(1);
+}
+#binarize-filter:hover{
+    background: url(./img/binarize.png) no-repeat center;
+}
+#sepia-filter:hover{
+    filter: sepia(10);
+}
+#bright-filter:hover{
+    filter: brightness(2);
+}
+#edge-detection-filter:hover{
+    background: url(./img/edge.png) no-repeat center;
+}
+#saturation-filter:hover{
+    filter: saturate(10);
+}
+
+tool-tip{
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    background-color: white;
+    color: black;
+
+    box-shadow: 0 0 10px #00000057;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    border-radius: 8px;
+
+    top: 100%;
+    left: 12.5%;
+
+    opacity: 0;
+    transition: opacity .8s ease;
+}
+
+:has(> tool-tip) {
+    position: relative;
+}
+
+:has(> tool-tip):hover tool-tip{
+    opacity: 1;
+}

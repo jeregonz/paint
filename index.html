@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Paint</title>
+    <link rel="shortcut icon" href="./icons/icon.png" type="image/x-icon">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <main>
+        <aside>
+            <h3>Dibujar</h3>
+            <section class="tools-list">
+                <button class="tool active" id="pen-btn">
+                    <tool-tip>
+                        Lapiz
+                    </tool-tip>
+                    <img src="./icons/pen.png" alt="dibujar">
+                </button>
+                <button class="tool" id="eraser-btn">
+                    <tool-tip>
+                        Goma
+                    </tool-tip>
+                    <img src="./icons/eraser.png" alt="borrar">
+                </button>
+                <button class="tool" id="btn-color">
+                    <tool-tip>
+                        Elegir color
+                    </tool-tip>
+                    <input class="tool" type="color" id="color-picker" value="#000000">
+                </button>
+                <button class="tool" id="clear-btn">
+                    <tool-tip>
+                        Vaciar
+                    </tool-tip>
+                    <img src="./icons/trash.png" alt="vaciar">
+                </button>
+            </section>
+
+            <h3>Imagenes</h3>
+            <section class="tools-list">
+                <button class="tool">
+                    <label class="tool" for="upload-img" id="label-upload">
+                        <tool-tip>
+                            Cargar imagen
+                        </tool-tip>
+                        <img src="./icons/upload.png" alt="cargar imagen">
+                    </label>
+                    <input type="file" accept="image/*" id="upload-img">
+                </button>
+                
+                <button class="tool" id="download-button">
+                    <tool-tip>
+                        Descargar imagen
+                    </tool-tip>
+                    <img src="./icons/download.png" alt="descargar">
+                    <a href="" id="download-link" download="img.png"></a>
+                </button>
+
+                <button class="tool" id="reload-image">
+                    <tool-tip>
+                        Resetear imagen
+                    </tool-tip>
+                    <img src="./icons/reload.png" alt="reiniciar imagen">
+                </button>
+            </section>
+
+            <h3>Filtros</h3>
+            <section class="filters">
+                <button class="filter-button" id="grey-scale-filter">Escala de grises</button>
+                <button class="filter-button" id="blur-filter">Blureado</button>
+                <button class="filter-button" id="negative-filter">Negativo</button>
+                <button class="filter-button" id="binarize-filter">Binarizacion</button>
+                <button class="filter-button" id="sepia-filter">Sepia</button>
+                <button class="filter-button" id="bright-filter">Brillo</button>
+                <button class="filter-button" id="edge-detection-filter">Deteccion de bordes</button>
+                <button class="filter-button" id="saturation-filter">Saturacion</button>
+            </section>
+        </aside>
+
+        <canvas id="canvas" width="600" height="600"></canvas>   
+    </main>
+
+    <script type="module" src='js/main.js'></script>
+</body>
+</html>
